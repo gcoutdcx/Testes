@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+   <meta charset="utf-8" />
+  <title> Time 3 </title>
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-css.css" />
+</head>
+<body>
+
+			<div class="formBox">
+				<form>
+						<div class="row">
+							<div class="col-sm-12">
+								<h1>CALCULAR ADIÇÃO</h1>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="inputBox ">
+									<div class="inputText">Numero 1</div>
+									<input type="text" id="txtNum1" name="txtNum1" class="input">
+								</div>
+                            </div>
+                        
+                         <div>
+                             <h1>+</h1>
+                         </div>   
+
+
+							<div class="col-sm-6">
+								<div class="inputBox">
+									<div class="inputText">Numero 2</div>
+									<input type="text" id="txtNum2" name="txtNum2" class="input">
+								</div>
+                            </div>
+                            <div id="msg"></div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<input type="button" id="btnCalcular" class="button" value="Calcular">
+							</div>
+                        </div>
+                        
+                        <div id="total"></div>
+						
+				</form>
+			</div>
+		</div>
+	<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+        var btnCalcular = document.getElementById("btnCalcular");
+		
+        var txtNum1 = document.getElementById("txtNum1");
+		var txtNum2 = document.getElementById("txtNum2");
+
+        var msg = document.getElementById("msg");
+        var total = document.getElementById("total");
+        
+        btnCalcular.onclick = function(){
+            var mostrarNum1 = txtNum1.value;
+            var mostrarNum2 = txtNum2.value;
+
+           
+            checkNumber(mostrarNum1, mostrarNum2);
+
+            function checkNumber(valor,valor2) {
+                var regra = /^[0-9]+$/;
+                if (valor.match(regra) && valor2.match(regra)) {
+                    total = document.getElementById("total");
+                    var resultado = parseInt(mostrarNum1) + parseInt(mostrarNum2);
+                    total.textContent = "Total: " + parseInt(resultado);
+                    msg.textContent = "";
+
+                }else{
+                    if(mostrarNum1 == 0 && mostrarNum2 == 0){
+                        msg.textContent = "VOCÊ DEVE INFORMAR OS DOIS CAMPOS PARA EFETUAR O CÁLCULO";
+                        total.textContent = "";
+                    }else{
+                        msg.textContent = "O VALOR INFORMADO DEVE SER NUMÉRICO";
+                        total.textContent = "";
+                    }
+                    
+                }
+            };    
+        
+            
+           
+           
+
+    
+
+
+
+
+
+        }
+
+		
+
+		
+
+		
+		
+	</script>
+</body>
+</html>
